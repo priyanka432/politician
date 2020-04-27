@@ -1,0 +1,72 @@
+<form [formGroup]="addSpeech"> 
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+     <div class="row top30  ">
+       <div class="col-md-3 bdr">
+           <button (click)="reset()">RESET</button>
+           <button (click)="reset()"class="top10" data-toggle="modal" data-target="#myModal">List</button>
+       </div>
+       <div class="col-md-9 bdr"> 
+         <span>Submit New Speech</span>
+       <input type="text" formControlName="authorName" [class.is-invalid]="addSpeech.get('authorName').invalid && addSpeech.get('authorName').touched " class="form-control input" placeholder="Author Name">
+       <p [class.d-none]="addSpeech.get('authorName').valid || addSpeech.get('authorName').untouched" class="text-danger">author name required</p>
+       <input type="email" formControlName="email" [class.is-invalid]="addSpeech.get('email').invalid && addSpeech.get('email').touched " class="form-control input" placeholder="email">
+       <p [class.d-none]="addSpeech.get('email').valid || addSpeech.get('email').untouched" class="text-danger">Email required</p> 
+       <input type="text"  formControlName="speachName" [class.is-invalid]="addSpeech.get('speachName').invalid && addSpeech.get('speachName').touched " class="form-control input" placeholder="Speech Name" >
+       <p [class.d-none]="addSpeech.get('speachName').valid || addSpeech.get('speachName').untouched" class="text-danger">speech name required</p>
+       <input type="text"  formControlName="subject" [class.is-invalid]="addSpeech.get('subject').invalid && addSpeech.get('subject').touched " class="form-control input" placeholder="Subject Keywords" >
+       <p [class.d-none]="addSpeech.get('subject').valid || addSpeech.get('subject').untouched" class="text-danger">subject keywords are required</p>
+       <input type="date"  formControlName="date" [class.is-invalid]="addSpeech.get('date').invalid && addSpeech.get('date').touched " class="form-control input"   >
+       <p [class.d-none]="addSpeech.get('date').valid || addSpeech.get('date').untouched" class="text-danger">speech date required</p>
+       <textarea class="input" formControlName="speechContent" [class.is-invalid]="addSpeech.get('speechContent').invalid && addSpeech.get('speechContent').touched " placeholder="speech content"></textarea>
+       <p [class.d-none]="addSpeech.get('speechContent').valid || addSpeech.get('speechContent').untouched" class="text-danger">author name required</p>
+       <button class="input submit" [disabled]="addSpeech.invalid" (click)="onSubmit()">Submit</button>
+       </div>
+     </div>
+    </div>
+   </div></form>
+ 
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">List</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <table>
+            <tr>
+              <td>S.No.</td>
+              <td>Author Name</td>
+              <td>Speech Name</td>
+              <td>Speech Date</td>
+              <td>Subject Keywords</td>
+              <td>Speech Content</td>
+            </tr>
+            <tr *ngFor="let speechList of getList;index as i">
+              <td> {{i+1}}</td>
+              <td>{{speechList.authorName}}</td>
+              <td>{{speechList.speachName}}</td>
+              <td>{{speechList.date}}</td>
+              <td>{{speechList.subject}}</td>
+              <td>{{speechList.speechContent}}</td>
+            </tr>
+          </table> 
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+ 

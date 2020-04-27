@@ -1,0 +1,35 @@
+<div class="row top30">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 bdr">
+         
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText"> 
+    
+        <!--<datalist id="p"  >
+            <option *ngFor="let list of speechData;index as i" class="form-control"  >  {{list.authorName}}  </option>
+             
+        </datalist>-->
+        <table class="top30">
+            <tr>              
+                <td>Author Name</td>
+                <td>Speech Name</td>
+                <td>Speech Date</td>
+                <td>subjects keyword</td>
+                <td>Speech Content</td>
+            </tr>
+            <tr *ngFor="let searchData of speechData | search:searchText">
+                
+                <td>{{searchData.authorName}}</td> 
+                <td>{{searchData.speachName}}</td>
+                <td>{{searchData.date}}</td>
+                <td>{{searchData.subject}}</td>
+                <td>{{searchData.speechContent}}</td>
+            </tr>
+        </table>
+         
+
+        
+        
+    </div>
+</div>
+
+ 

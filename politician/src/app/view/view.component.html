@@ -1,0 +1,74 @@
+ 
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+     <div class="row top30">
+       <div class="col-md-3 bdr"><button *ngFor="let speech of speechName; index as i " (click)="getSpeechContent(i)" class="none">{{speech.speachName}}</button></div>
+       <div class="col-md-1"></div>
+       <div class="col-md-8 bdr">
+         <p>Speech Content </p> 
+        <div  *ngFor="let speech of speechContent;index as i">{{speech.speechContent}}</div>
+      </div>
+     </div>
+     <div class="row top10">
+       <div class="col-md-4"></div>
+      <div class="col-md-8  ">
+        <form [formGroup]="saveData" >  
+        <div class="row"> 
+       <div class="col-md-3">
+         <input type="text" formControlName="authorName"   class="form-control" placeholder="Author">
+       </div>
+       <div class="col-md-4">
+        <input type="text" class="form-control" formControlName="subject"  placeholder="subject area keywords">
+      </div>
+      <div class="col-md-5">
+        <input type="date" formControlName="date" class="form-control" >
+      </div>
+     </div>
+     </form>
+     </div>
+    </div>
+    <div class="row top20">
+      <div class="col-md-9"></div>
+      <div class="col-md-1">
+        <button   data-toggle="modal" (click)="delete()" data-target="#myModal" >Delete</button>
+      </div>
+      <div class="col-md-1">
+        <button (click)="save()"  >Save</button>
+      </div>
+      <div class="col-md-1">
+        <button (click)="share()">Share</button>
+      </div>
+    </div>
+   </div>
+   </div>
+ 
+
+
+   <!--<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content"> 
+          Modal Header -->
+        <!--<div class="modal-header">
+          <h4 class="modal-title">Enter Email Id</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+         Modal body -->
+        <!--<div class="modal-body">
+
+        <form [formGroup]="email"> 
+         <input type="text" class="form-control" formControlName="Email"[class.is-invalid]="email.get('Email').invalid && email.get('Email').touched " placeholder="email">
+         <small class="text-danger" [class.d-none]="email.get('Email').valid || email.get('Email').untouched">email is required</small>
+         <button type="button"   class="but" [disabled]="email.invalid" (click)="submitEmail()">Submit</button>
+         </form>
+        </div>
+        
+   
+         
+        
+      </div>
+    </div>
+  </div>-->
+ 
+
